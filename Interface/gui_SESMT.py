@@ -94,7 +94,7 @@ lbl_fonte_risk = tk.Label(master=frm_risk, text='Fonte do Risco:', font=('Arial'
 lbl_fonte_risk.grid(row=3, column=4,sticky='w',padx=10)
 
 #Menu com as fontes
-lista_fonte_risks = ['Selecione uma Opção:', 'Fonte 1', 'Fonte 2', 'Ft 3', 'Ft 6'] #Trocar por arquivo local
+lista_fonte_risks = ['Selecione uma Opção:', 'MANIPULAÇÃO DE PRODUTOS DE LIMPEZA EM GERAL','ATO DE VARRER, ESFREGAR, LIMPAR, ETC','PISO MOLHADO','SISTEMAS DE ILUMINAÇÃO','SISTEMAS DE CLIMATIZAÇÃO QUEBRADOS','AUSÊNCIA DE JANELAS','FORNO/FOGÃO','PREPARAÇÃO DE ALIMENTOS COM UTILIZAÇÃO DE FORNO E FOGÃO','MANUSEAMENTO DE FACAS','TRABALHO PROLONGADO NO COMPUTADOR','MOBILIÁRIOS INADEQUADOS','DIGITAÇÃO CONSTANTE','CONTATO COM PACIENTES E/OU ACOMPANHANTES','MANUSEIO DE MATERIAIS PERFUROCORTANTES',''] #Trocar por arquivo local
 valor_optmenu_fonte_risk = tk.StringVar(window) 
 optmenu_fonte_risk = ttk.OptionMenu(frm_risk, valor_optmenu_fonte_risk, *lista_fonte_risks) 
 optmenu_fonte_risk.grid(row=3, column=5,sticky='w',padx=10)
@@ -120,12 +120,12 @@ lbl_lesao.grid(row=4, column=0,sticky='n',padx=10)
 #combobox para as lesões
 valores_lesoes = tk.StringVar(window)
 combobox_lesoes = ttk.Combobox(master=frm_lesao, state="readonly",textvariable=valores_lesoes)
-combobox_lesoes.grid(row=5,column=0,sticky='n',padx=10,pady=10)
+#combobox_lesoes.grid(row=5,column=0,sticky='n',padx=10,pady=10)
 
-#lista múltipla para as lesões
-lista_lesoes = ['L1','L2','A1','L3','L6','A2','L7','L8','A3','L9','L10','A6','L11','L12','A7','L13','L16','A8','L17']
-listbox_lesoes = tk.Listbox(master=frm_lesao, selectmode="multiple", exportselection=0)
-listbox_lesoes.grid(row=6,column=0,sticky='n',padx=10)
+#lista múltipla para as lesões TALVEZ FAZER ALGUMA DIVISÃO (EX: POR TIPO DE RISCO)
+lista_lesoes = ['FALTA DE CONCENTRAÇÃO','DIMINUIÇÃO DE PRODUTIVIDADE','LER/DORT','CONTAMINAÇÃO POR BACTÉRIAS, VÍRUS E FUNGOS','FERIMENTOS','CONTAMINAÇÕES POR MATERIAL BIOLÓGICO','DANOS MORAIS','DERMATITES POR IRRITAÇÃO PRIMÁRIA','QUEIMADURAS','FRATURAS, ENTORSES E LUXAÇÕES','BAIXO RENDIMENTO','PROBLEMAS DE VISÃO','CANSAÇO','ESTRESSE TÉRMICO','PROBLEMAS RESPIRATÓRIOS','IRRITABILIDADE AGUDA','FRAQUEZA','FALTA DE OXIGENAÇÃO','DESIDRATAÇÃO','ERUPÇÃO DA PELE','CÂIMBRAS','FADIGA FÍSICA','DISTÚRBIOS PSICONEURÓTICOS','PROBLEMAS CARDIO CIRCULATÓRIOS','INSOLAÇÃO','AMPUTAÇÕES','PERDA DE SANGUE']
+listbox_lesoes = tk.Listbox(master=frm_lesao, selectmode="multiple", exportselection=0,width=55,height=6)
+listbox_lesoes.grid(row=6,column=0,sticky='n',padx=10,pady=10)
 for value in lista_lesoes:
    listbox_lesoes.insert(tk.END, value)
 
@@ -152,12 +152,12 @@ lbl_medidas.grid(row=4, column=2,sticky='n',padx=10)
 #combobox para as medidas
 valores_medidas = tk.StringVar(window)
 combobox_medidas = ttk.Combobox(master=frm_medidas, state="readonly",textvariable=valores_medidas)
-combobox_medidas.grid(row=5,column=2,sticky='n',padx=10,pady=10)
+#combobox_medidas.grid(row=5,column=2,sticky='n',padx=10,pady=10)
 
-#lista múltipla para as medidas
-lista_medidas = ['M1','M2','E1','L3','J6','A2','N7','Q8','H3','L9','L10','A6','L11','l12','F7','L13','L16','M8','L17']
-listbox_medidas = tk.Listbox(master=frm_medidas, selectmode="multiple", exportselection=0)
-listbox_medidas.grid(row=6,column=2,sticky='n',padx=10)
+#lista múltipla para as medidas, TALVEZ FAZER ALGUMA DIVISÃO (EX: POR TIPO DE RISCO)
+lista_medidas = ['INEXISTENTE','LUVAS ANTICORTE','TREINAMENTOS','SISTEMAS DE EXAUSTÃO','SINALIZAÇÃO','GINÁSTICA LABORAL','LUVAS DE LIMPEZA','LUVAS DESCARTÁVEIS','USO DE COLETORES APROPRIADOS','ÓCULOS DE PROTEÇÃO','MÁSCARA CIRÚRGICA','TOUCA','SAPATO FECHADO','PAUSAS NO TRABALHO']
+listbox_medidas = tk.Listbox(master=frm_medidas, selectmode="multiple", exportselection=0,width=55,height=6)
+listbox_medidas.grid(row=6,column=2,sticky='n',padx=10,pady=10)
 for value in lista_medidas:
    listbox_medidas.insert(tk.END, value)
 
@@ -184,12 +184,12 @@ lbl_populacao.grid(row=4, column=4,sticky='n',padx=10)
 #combobox para as populações expostas
 valores_populacao = tk.StringVar(window)
 combobox_populacao = ttk.Combobox(master=frm_populacao, state="readonly",textvariable=valores_populacao)
-combobox_populacao.grid(row=5,column=4,sticky='n',padx=10,pady=10)
+#combobox_populacao.grid(row=5,column=4,sticky='n',padx=10,pady=10)
 
 #lista múltipla para as populações expostas
-lista_populacao = ['P1','d2','Q1','L3','População','B6','A2','X7','K8','H3','L9','L10','R6','P11','l12','F7','L13','W16','M8','L17']
-listbox_populacao = tk.Listbox(master=frm_populacao, selectmode="multiple", exportselection=0)
-listbox_populacao.grid(row=6,column=4,sticky='n',padx=10)
+lista_populacao = ['AGENTES DE SERVIÇOS GERAIS','PROFESSORES E ESTAGIÁRIOS DE LICENCIATURA','COZINHEIROS','SERVIDORES ADMINISTRATIVOS','DIGITADORES','MÉDICOS, ENFERMEIROS E TÉCNICOS DE ENFERMAGEM']
+listbox_populacao = tk.Listbox(master=frm_populacao, selectmode="multiple", exportselection=0,width=55,height=6)
+listbox_populacao.grid(row=6,column=4,sticky='n',padx=10,pady=10)
 for value in lista_populacao:
    listbox_populacao.insert(tk.END, value)
 
@@ -235,6 +235,7 @@ def ajustar_riscos(event):
             ultimo_ajuste = 'Mecânicos'
 
 optmenu_desc_risk.bind('<Enter>', ajustar_riscos)
+window.bind('<Enter>', ajustar_riscos)
 
 #Registrar localmente as informações
 def registrar():
