@@ -1,6 +1,8 @@
 from datetime import date
 import tkinter as tk
 from tkinter import ttk
+import os
+from tkinter.messagebox import showinfo
 
 #Configuração da janela
 window = tk.Tk()
@@ -32,7 +34,7 @@ lbl_secretaria = tk.Label(master=frm_row1, text='Secretaria:', font=('Arial', 16
 lbl_secretaria.grid(row=2, column=0,sticky='w',padx=10)
 
 #Menu com as secretarias
-lista_secretarias = ['Selecione uma Opção:', 'Sec A', 'Sec B', 'Sec C', 'Sec D', 'Secretaria F'] #Trocar por arquivo local
+lista_secretarias = ['Selecione uma Opção:','SECRETARIA DE ASSISTÊNCIA SOCIAL','SECRETARIA DE ADMINISTRAÇÃO','SECRETARIA DE CIÊNCIA', 'TECNOLOGIA E INOVAÇÃO','SECRETARIA DE SAÚDE','SECRETARIA DE EDUCAÇÃO','SECRETARIA DE ESPORTE', 'JUVENTUDE E LAZER','SECRETARIA DE OBRAS','SECRETARIA DE SERVIÇOS URBANOS E MEIO AMBIENTE','SECRETARIA DE AGRICULTURA','SECRETARIA DE DESENVOLVIMENTO ECONÔMICO','SECRETARIA DE FINANÇAS','SECRETARIA DE PLANEJAMENTO', 'GESTÃO E TRANSPARÊNCIA'] #Trocar por arquivo local
 valor_optmenu_secretaria = tk.StringVar(window) 
 optmenu_secretaria = ttk.OptionMenu(frm_row1, valor_optmenu_secretaria, *lista_secretarias) 
 optmenu_secretaria.grid(row=2, column=1,sticky='w',padx=10)
@@ -42,7 +44,7 @@ lbl_gpExposicao = tk.Label(master=frm_row1, text='Grupo de Exposição:', font=(
 lbl_gpExposicao.grid(row=2, column=2,sticky='w',padx=10)
 
 #Menu com Grupos de exposição
-lista_gpExposicoes = ['Selecione uma Opção:', 'GP A', 'GP B', 'GP C', 'GP D', 'dqidgwqudqwd'] #Trocar por arquivo local
+lista_gpExposicoes = ['Selecione uma Opção:',"ATIVIDADES DE ATENDIMENTO DE SAÚDE","ATIVIDADES DE ENSINO","ATIVIDADES ADMINISTRATIVAS ","ATIVIDADES NA COZINHA","ATIVIDADES DE LIMPEZA"] #Trocar por arquivo local
 valor_optmenu_gpExposicao = tk.StringVar(window) 
 optmenu_gpExposicao = ttk.OptionMenu(frm_row1, valor_optmenu_gpExposicao, *lista_gpExposicoes) 
 optmenu_gpExposicao.grid(row=2, column=4,sticky='w',padx=10)
@@ -52,7 +54,7 @@ lbl_instituicao = tk.Label(master=frm_row1, text='Instituição:', font=('Arial'
 lbl_instituicao.grid(row=2, column=6,sticky='w',padx=10)
 
 #Menu com as instituições
-lista_instituicoes = ['Selecione uma Opção:', 'Inst A', 'Inst B', 'Inst C', 'Inst D', 'dwqdqdwqdqd'] #Trocar por arquivo local
+lista_instituicoes = ['Selecione uma Opção:',"CRECHE MUNICIPAL VOVÓ ADALGISA","ESCOLA MUNICIPAL CEAI ANTÔNIO MARIZ","ESCOLA MUNICIPAL EF PROFESSOR MAURO LUNA","EMEF LUIS JUVINO GOMES","EMEF MARIA DAS VITORIAS PIRES UCHOA QUEIROZ","HOSPITAL MUNICIPAL PEDRO I","MATERNIDADE - ISEA","HOSPITAL DA CRIANÇA E DO ADOLESCENTE","HOSPITAL MUNICIPAL DR. EDGLEY","POLICLINA TEREZINHA GARCIA RIBEIRO"] #Trocar por arquivo local
 valor_optmenu_instituicao = tk.StringVar(window) 
 optmenu_instituicao = ttk.OptionMenu(frm_row1, valor_optmenu_instituicao, *lista_instituicoes) 
 optmenu_instituicao.grid(row=2, column=7,sticky='w',padx=10)
@@ -66,7 +68,7 @@ lbl_tipo_risk = tk.Label(master=frm_risk, text='Tipo de Risco:', font=('Arial', 
 lbl_tipo_risk.grid(row=3, column=0,sticky='w',padx=10)
 
 #Menu com os riscos
-lista_tipo_risks = ['Selecione uma Opção:', 'Físico', 'Químico', 'Biológico', 'Ergonômico', 'Acidental'] #Trocar por arquivo local
+lista_tipo_risks = ['Selecione uma Opção:', 'Físico', 'Químico', 'Biológico', 'Ergonômico', 'Mecânicos'] #Trocar por arquivo local
 valor_optmenu_tipo_risk = tk.StringVar(window) 
 optmenu_tipo_risk = ttk.OptionMenu(frm_risk, valor_optmenu_tipo_risk, *lista_tipo_risks) 
 optmenu_tipo_risk.grid(row=3, column=1,sticky='w',padx=10)
@@ -76,11 +78,11 @@ lbl_desc_risk = tk.Label(master=frm_risk, text='Descrição do Risco:', font=('A
 lbl_desc_risk.grid(row=3, column=2,sticky='w',padx=10)
 
 #Menu com a descrição dos riscos
-lista_risks_fisicos = ['Selecione uma Opção:','Fís 1', 'fis 2', 'fis 3'] #Trocar por arquivo local
-lista_risks_quimicos = ['Selecione uma Opção:', 'quim 1', 'Quim 2', 'quim 3'] #Trocar por arquivo local
-lista_risks_biologicos = ['Selecione uma Opção:', 'bio 1', 'bio 2', 'Bio 3'] #Trocar por arquivo local
-lista_risks_ergonomicos = ['Selecione uma Opção:', 'ergo 1', 'ergo 2', 'ergo 3'] #Trocar por arquivo local
-lista_risks_acidentais = ['Selecione uma Opção:', 'Ac 1', 'Ac 2', 'Ac 3'] #Trocar por arquivo local
+lista_risks_fisicos = ['Selecione uma Opção:',"RUÍDOS","VIBRAÇÕES","CALOR","RADIAÇÕES IONIZANTES","RADIAÇÕES NÃO IONIZANTES"] #Trocar por arquivo local
+lista_risks_quimicos = ['Selecione uma Opção:',"POEIRAS","FUMOS","NÉVOAS","NEBLINAS","GASES"] #Trocar por arquivo local
+lista_risks_biologicos = ['Selecione uma Opção:',"VÍRUS","BACTÉRIAS","FUNGOS","PROTOZOÁRIOS","PARASITAS"] #Trocar por arquivo local
+lista_risks_ergonomicos = ['Selecione uma Opção:',"MONOTONIA","REPETITIVIDADE","RITMO EXCESSIVO","POSTURAS INADEQUADAS","LEVANTAMENTO E TRANSPORTE MANUAL DE PESO"] #Trocar por arquivo local
+lista_risks_mecanicos = ['Selecione uma Opção:',"ELETRICIDADE","FERRAMENTAS INADEQUADAS OU DEFEITUOSAS","ARRANJO FÍSICO INADEQUADO","ANIMAIS PEÇONHENTOS","MÁQUINAS E EQUIPAMENTOS SEM PROTEÇÃO"] #Trocar por arquivo local
 lista_risks_atual = lista_risks_fisicos
 valor_optmenu_desc_risk = tk.StringVar(window)  
 optmenu_desc_risk = ttk.OptionMenu(frm_risk, valor_optmenu_desc_risk, *lista_risks_atual) 
@@ -102,7 +104,7 @@ lbl_nivel_risk = tk.Label(master=frm_risk, text='Nível do Risco:', font=('Arial
 lbl_nivel_risk.grid(row=3, column=6,sticky='w',padx=10)
 
 #Menu com os níveis
-lista_nivel_risks = ['Selecione uma Opção:','Nível 1','Nível 2','Nível 3','Nível 4','Nível 5']#Trocar por arquivo local
+lista_nivel_risks = ['Selecione uma Opção:','1','2','3','4','5']#Trocar por arquivo local
 valor_optmenu_nivel_risk = tk.StringVar(window)  
 optmenu_nivel_risk = ttk.OptionMenu(frm_risk, valor_optmenu_nivel_risk, *lista_nivel_risks) 
 optmenu_nivel_risk.grid(row=3, column=7,sticky='n',padx=10)
@@ -227,19 +229,42 @@ def ajustar_riscos(event):
             optmenu_desc_risk.set_menu(*lista_risks_ergonomicos)
             ultimo_ajuste = 'Ergonômico'
     
-    elif (valor_optmenu_tipo_risk.get() == 'Acidental'):
-        if not(ultimo_ajuste == 'Acidental'):
-            optmenu_desc_risk.set_menu(*lista_risks_acidentais)
-            ultimo_ajuste = 'Acidental'
+    elif (valor_optmenu_tipo_risk.get() == 'Mecânicos'):
+        if not(ultimo_ajuste == 'Mecânicos'):
+            optmenu_desc_risk.set_menu(*lista_risks_mecanicos)
+            ultimo_ajuste = 'Mecânicos'
 
 optmenu_desc_risk.bind('<Enter>', ajustar_riscos)
 
-#verificar valores
-def leigo():
-    print(valores_populacao.get())
-    return
+#Registrar localmente as informações
+def registrar():
+    infos = [valor_optmenu_secretaria.get(),valor_optmenu_instituicao.get(),valor_optmenu_gpExposicao.get(),valor_optmenu_tipo_risk.get(),valor_optmenu_desc_risk.get(),valor_optmenu_fonte_risk.get(),valor_optmenu_nivel_risk.get(),valores_lesoes.get(),valores_medidas.get(),valores_populacao.get()]
 
-bt = ttk.Button(master=window,text='Verificar valores',command=leigo)
-bt.grid(row=10,column=0)
+    if ((infos.count('Selecione uma Opção:') > 0) or (infos.count('') > 0)):
+        showinfo(title='Operação de Registro', message='          FALHA NA OPERAÇÃO!\n    Campo(s) de Cadastro Vazio(s)\n\nEXECUTAR REGISTRO NOVAMENTE!')
+    else:
+        diretorio_atual = os.getcwd()
+
+        head = 'Secretaria;Instituição;Grupo de Exposição;Tipo de Fator de Risco;Descrição do Fator de Risco;Fonte do Risco;Nível do Risco;Lesões/Agravos;Medidas de Controle Existentes;Populações Expostas\n'
+        info = f'{';'.join(infos)}\n'
+
+        #info = f'{valor_optmenu_secretaria};{valor_optmenu_instituicao};{valor_optmenu_gpExposicao};{valor_optmenu_tipo_risk};{valor_optmenu_desc_risk};{valor_optmenu_fonte_risk};{valor_optmenu_nivel_risk};{valores_lesoes};{valores_medidas};{valores_populacao}'
+
+        try:
+            open(f'{diretorio_atual}\\dados_inventario_riscos_SESMT.csv','x')
+
+            with open(f'{diretorio_atual}\\dados_inventario_riscos_SESMT.csv','a') as escrita:
+                escrita.write(head)
+                escrita.write(info)
+            showinfo(title='Operação de Registro', message='REGISTRADO COM SUCESSO!')
+
+        except FileExistsError:
+
+            with open(f'{diretorio_atual}\\dados_inventario_riscos_SESMT.csv','a') as escrita:
+                escrita.write(info)
+            showinfo(title='Operação de Registro', message='REGISTRADO COM SUCESSO!')
+
+bt = ttk.Button(master=window,text='Registrar Informações',command=registrar)
+bt.grid(row=10,column=2)
 
 window.mainloop()
