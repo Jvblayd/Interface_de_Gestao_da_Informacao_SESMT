@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import ttk
 import os
 from tkinter.messagebox import showinfo
+from tkinter import *
 
 #Configuração da janela
 window = tk.Tk()
@@ -20,6 +21,11 @@ window.columnconfigure([0, 1, 2, 3, 4, 5, 6, 7], weight=1)
 data = date.today().strftime('%d/%m/%Y')
 lbl_data = tk.Label(master=window, text=f'Data: {data}', font=('Arial', 10))
 lbl_data.grid(row=0,column=0,sticky='w',padx=10)
+
+#Logo do SESMT
+#bg = PhotoImage(file='logo_SESMT.jpeg')
+#lbl_data = tk.Label(master=window, bg=bg)
+#lbl_data.grid(row=0,column=1,sticky='w',padx=10)
 
 #Head
 lbl_head = tk.Label(master=window, text='Inventário de Riscos - SESMT', font=('Arial', 23))
@@ -94,7 +100,7 @@ lbl_fonte_risk = tk.Label(master=frm_risk, text='Fonte do Risco:', font=('Arial'
 lbl_fonte_risk.grid(row=3, column=4,sticky='w',padx=10)
 
 #Menu com as fontes
-lista_fonte_risks = ['Selecione uma Opção:', 'MANIPULAÇÃO DE PRODUTOS DE LIMPEZA EM GERAL','ATO DE VARRER, ESFREGAR, LIMPAR, ETC','PISO MOLHADO','SISTEMAS DE ILUMINAÇÃO','SISTEMAS DE CLIMATIZAÇÃO QUEBRADOS','AUSÊNCIA DE JANELAS','FORNO/FOGÃO','PREPARAÇÃO DE ALIMENTOS COM UTILIZAÇÃO DE FORNO E FOGÃO','MANUSEAMENTO DE FACAS','TRABALHO PROLONGADO NO COMPUTADOR','MOBILIÁRIOS INADEQUADOS','DIGITAÇÃO CONSTANTE','ATENDIMENTO DE PACIENTES','INTERAÇÃO SOCIAL COM PACIENTES E ACOMPANHANTES','MANUSEIO DE MATERIAIS PERFUROCORTANTES',''] #Trocar por arquivo local
+lista_fonte_risks = ['Selecione uma Opção:', 'MANIPULAÇÃO DE PRODUTOS DE LIMPEZA EM GERAL','ATO DE VARRER, ESFREGAR, LIMPAR, ETC','PISO MOLHADO','SISTEMAS DE ILUMINAÇÃO','SISTEMAS DE CLIMATIZAÇÃO QUEBRADOS','AUSÊNCIA DE JANELAS','FORNO/FOGÃO','PREPARAÇÃO DE ALIMENTOS COM UTILIZAÇÃO DE FORNO E FOGÃO','MANUSEAMENTO DE FACAS','TRABALHO PROLONGADO NO COMPUTADOR','MOBILIÁRIOS INADEQUADOS','DIGITAÇÃO CONSTANTE','ATENDIMENTO DE PACIENTES','INTERAÇÃO SOCIAL COM PACIENTES E ACOMPANHANTES','MANUSEIO DE MATERIAIS PERFUROCORTANTES'] #Trocar por arquivo local
 valor_optmenu_fonte_risk = tk.StringVar(window) 
 optmenu_fonte_risk = ttk.OptionMenu(frm_risk, valor_optmenu_fonte_risk, *lista_fonte_risks) 
 optmenu_fonte_risk.grid(row=3, column=5,sticky='w',padx=10)
